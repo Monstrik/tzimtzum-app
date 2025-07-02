@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tzimtzum-app/static/css/main.cb47c283.css",
+    "main.js": "/tzimtzum-app/static/js/main.e2975b45.js",
+    "static/js/453.62dc2d68.chunk.js": "/tzimtzum-app/static/js/453.62dc2d68.chunk.js",
+    "index.html": "/tzimtzum-app/index.html",
+    "main.cb47c283.css.map": "/tzimtzum-app/static/css/main.cb47c283.css.map",
+    "main.e2975b45.js.map": "/tzimtzum-app/static/js/main.e2975b45.js.map",
+    "453.62dc2d68.chunk.js.map": "/tzimtzum-app/static/js/453.62dc2d68.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cb47c283.css",
+    "static/js/main.e2975b45.js"
+  ]
+}
