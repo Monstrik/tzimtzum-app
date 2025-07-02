@@ -47,7 +47,11 @@ const BoardScreen = ({currentLevel, onRoll, feedback, arrows, snakes, levelMeani
 
     return (
         <div className="board-screen">
-
+            <h4>Ascend the Path to Ein Sof</h4>
+            <div className="board-grid">
+                {renderCells()}
+            </div>
+            <button className="roll-again-button" onClick={onRoll}>Roll Again</button>
 
 
             <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
@@ -64,21 +68,16 @@ const BoardScreen = ({currentLevel, onRoll, feedback, arrows, snakes, levelMeani
                     key={feedback.message}
                 >
                     {feedback.message}
+                    {/*<p>{levelMeanings[currentLevel] || 'This level holds subtle mysteries yet to be revealed.'}</p>*/}
                 </h3>
-                <p>{levelMeanings[currentLevel] || 'This level holds subtle mysteries yet to be revealed.'}</p>
+
+                {!diceResult && levelMeanings[currentLevel] && (
+                    <p className="level-meaning">
+                        📜  &nbsp;{levelMeanings[currentLevel]}
+                    </p>
+                )}
+
             </Modal>
-            <h3>Ascend the Path to Ein Sof</h3>
-
-            {/*{levelMeanings[currentLevel] && (*/}
-            {/*    <p className="level-meaning">*/}
-            {/*        📜 {levelMeanings[currentLevel]}*/}
-            {/*    </p>*/}
-            {/*)}*/}
-
-            <div className="board-grid">
-                {renderCells()}
-            </div>
-            <button className="roll-again-button" onClick={onRoll}>Roll Again</button>
         </div>
     );
 };

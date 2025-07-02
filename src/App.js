@@ -6,7 +6,7 @@ import BoardScreen from './screens/BoardScreen';
 
 function App() {
     const [stage, setStage] = useState('start');
-    const [playerLevel, setPlayerLevel] = useState(0);
+    const [playerLevel, setPlayerLevel] = useState(1);
     const [feedback, setFeedback] = useState({});
     const [diceResult, setDiceResult] = useState(null);
     const snakes = {
@@ -96,52 +96,52 @@ function App() {
 
     const handleRoll = () => {
         const result = Math.ceil(Math.random() * 6);
-        setFeedback({ message: ``, type: '' });
-        setDiceResult(result); // Show result immediately
+        setDiceResult(result);
 
         setTimeout(() => {
             let nextLevel = Math.min(playerLevel + result, 72);
 
             if (snakes[nextLevel]) {
-                setFeedback({ message: '🐍 You hit a setback! Falling down...', type: 'snake' });
+                setFeedback({message: `🐍 You hit a setback! Falling down...to ${nextLevel}`, type: 'snake'});
                 nextLevel = snakes[nextLevel];
             } else if (arrows[nextLevel]) {
-                setFeedback({ message: '🕊️ Divine boost! You rise higher...', type: 'arrow' });
+                setFeedback({message: `🕊️ Divine boost! You rise higher... to ${nextLevel}`, type: 'arrow'});
                 nextLevel = arrows[nextLevel];
             } else {
-                setFeedback({ message: `🎲 You moved to level ${nextLevel}`, type: 'neutral' });
+                setFeedback({message: `Level ${nextLevel}`, type: 'neutral'});
             }
 
             setPlayerLevel(nextLevel);
             setDiceResult(null); // Clear result after move
-        }, 2000); // Delay by 1 second
+        }, 1500);
     };
 
 
     return (
         <Frame>
-            {stage === 'start' && <StartScreen onStart={() => setStage('dice')}/>}
-            {stage === 'dice' && (
-                <DiceRollScreen
-                    onEnter={(roll) => {
-                        // setPlayerLevel((prev) => Math.min(prev + roll, 72));
-                        setPlayerLevel(1);
-                        setStage('board');
-                    }}
-                />
-            )}
-            {stage === 'board' && (
-                <BoardScreen
-                    currentLevel={playerLevel}
-                    onRoll={handleRoll}
-                    feedback={feedback}
-                    arrows={arrows}
-                    snakes={snakes}
-                    levelMeanings={levelMeanings}
-                    diceResult={diceResult}
-                />
-            )}
-
+            <div className="screen">
+                {stage === 'start' && <StartScreen onStart={() => setStage('dice')}/>}
+                {stage === 'dice' && (
+                    <DiceRollScreen
+                        onEnter={(roll) => {
+                            // setPlayerLevel((prev) => Math.min(prev + roll, 72));
+                            // setPlayerLevel(1);
+                            setStage('board');
+                        }}
+                    />
+                )}
+                {stage === 'board' && (
+                    <BoardScreen
+                        currentLevel={playerLevel}
+                        onRoll={handleRoll}
+                        feedback={feedback}
+                        arrows={arrows}
+                        snakes={snakes}
+                        levelMeanings={levelMeanings}
+                        diceResult={diceResult}
+                    />
+                )}
+            </div>
         </Frame>
     );
 

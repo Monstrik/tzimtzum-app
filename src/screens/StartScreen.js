@@ -6,14 +6,16 @@ const StartScreen = ({ onStart }) => {
         <div className="start-screen">
             <h2 className="title">TzimTzum</h2>
             <p className="description">
-                A unique Jewish journey of self-realization, adapted from the ancient Hindu game Leela-Karma.
-                Roll a six to begin your spiritual ascent toward Level 68 — Ein Sof.
+                A unique Jewish journey of self-realization, <br/>
+                adapted from the ancient Hindu game Leela-Karma.<br/><br/>
+                Roll a six to begin your spiritual ascent <br/>
+                toward Level 68 — Ein Sof.
             </p>
             <ul className="rules">
-                <li>🎲 Roll a six to enter the journey</li>
-                <li>🐍 Snakes = spiritual setbacks</li>
-                <li>🕊️ Arrows = divine boosts</li>
-                <li>✨ Reach Level 68 to attain unity with Ein Sof</li>
+                <li> 🎲  Roll a six to enter the journey</li>
+                <li> 🐍  Snakes = spiritual setbacks</li>
+                <li> 🕊️  Arrows = divine boosts</li>
+                <li> ✨  Reach Level 68 to attain unity with Ein Sof</li>
             </ul>
             <button className="start-button" onClick={onStart}>Start</button>
         </div>

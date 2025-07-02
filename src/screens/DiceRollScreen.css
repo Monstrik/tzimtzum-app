@@ -1,15 +1,16 @@
 .dice-roll-screen {
+    color: #c1925a;
+    background: #3b290d;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
-    background: #f5f2eb;
-    color: #222;
     font-family: 'Georgia', serif;
 }
 
 .dice-box {
+    font-family: "Arial Black", serif;
     width: 120px;
     height: 120px;
     border: 4px solid #c1925a;

@@ -3,22 +3,22 @@
     flex-direction: column;
     align-items: center;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
     font-family: 'Georgia', serif;
-    background: #fdf6e3;
-    color: #222;
+    color: #c1925a;
+    background: #3b290d;
 }
 
 .board-grid {
     display: grid;
     grid-template-columns: repeat(8, 1fr); /* 8 columns */
     gap: 6px;
-    margin-top: 20px;
+    /*margin-top: 10px;*/
     width: 100%;
 }
 
 .cell {
-    background: #fff;
+    background: #3b290d;
     border: 2px solid #c1925a;
     border-radius: 10px;
     padding: 10px;
@@ -28,24 +28,23 @@
 }
 
 .symbol {
-    display: block;
-    /*font-size: 1.2rem;*/
+    /*display: block;*/
     /*margin-top: 2px;*/
-    /*font-size: 0.8rem; !* Try 0.6rem or 1rem depending on your layout *!*/
+    font-size: 0.8rem;
 }
 
 .arrow {
-    background: #e6f7ff;
+    background: #0d2d3b;
     border-color: #6baed6;
 }
 
 .snake {
-    background: #ffe6e6;
+    background: #59330d;
     border-color: #d66b6b;
 }
 
 .highlight {
-    background: #fff8dc;
+    background: #3b300d;
     border: 2px solid yellow;
     box-shadow: 0 0 15px rgba(193, 146, 90, 0.8);
 }
@@ -53,7 +52,7 @@
 .roll-again-button {
     margin-top: 20px;
     background-color: #c1925a;
-    color: white;
+    color: #3b290d;
     border: none;
     padding: 10px 20px;
     font-size: 1rem;
@@ -68,7 +67,7 @@
 .feedback-message {
     font-size: 1rem;
     margin-top: 12px;
-    color: #444;
+    color: #c1925a;
     opacity: 0;
     animation: fadeIn 0.8s ease-in-out forwards;
 }
@@ -98,7 +97,7 @@
 .level-meaning {
     font-size: 0.95rem;
     margin-top: 8px;
-    color: #5a4a2f;
+    color: #c1925a;
     font-style: italic;
     animation: fadeIn 0.8s ease-in-out forwards;
 }
@@ -106,7 +105,7 @@
 
 .dice-result {
     font-size: 1.2rem;
-    color: #333;
+    color: #c1925a;
     margin-top: 10px;
     animation: fadeIn 0.5s ease-in-out;
 }

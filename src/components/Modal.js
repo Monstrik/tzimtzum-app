@@ -21,9 +21,8 @@ const Modal = ({ isOpen, onClose, children }) => {
                         exit={{ y: 50, scale: 0.8, opacity: 0 }}
                         transition={{ type: 'spring', stiffness: 300 }}
                     >
-                        <button className="modal-close" onClick={onClose}>×</button>
+                        {/*<button className="modal-close" onClick={onClose}>×</button>*/}
                         {children}
-
                         <button className="close-button" onClick={onClose}>Close</button>
                     </motion.div>
                 </motion.div>
