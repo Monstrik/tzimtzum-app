@@ -8,7 +8,7 @@ const DiceRollScreen = ({onEnter}) => {
     const handleRoll = () => {
         const result = Math.ceil(Math.random() * 6);
         setRoll(result);
-        setMessage(result === 6 ? '✨ You rolled a six! The path opens.' : `Roll again...`);
+        setMessage(result === 6 ? '✨ You rolled a six! The path opens.' : `You rolled ${result}. Roll again...`);
 
         if (result === 6) setTimeout(() => onEnter(result), 2000);
     };
@@ -19,7 +19,7 @@ const DiceRollScreen = ({onEnter}) => {
                 <>
                     <h3>Roll the Dice</h3>
                     <div className="dice-box" onClick={handleRoll}>
-                        {roll ? <span>{roll}</span> : <span>🎲</span>}
+                        <span>🎲</span>
                     </div>
                 </>
             }
