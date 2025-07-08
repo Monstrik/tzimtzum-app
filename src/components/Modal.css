@@ -40,17 +40,18 @@
     }
 }
 
-.modal-close {
-    position: absolute;
-    top: 8px;
-    right: 12px;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-}
+/*.modal-close {*/
+/*    position: absolute;*/
+/*    top: 8px;*/
+/*    right: 12px;*/
+/*    background: none;*/
+/*    border: none;*/
+/*    font-size: 1.2rem;*/
+/*    cursor: pointer;*/
+/*}*/
 
 .close-button {
+    width: 90%;
     display: block;
     margin: 20px auto 0;
     padding: 10px 16px;
