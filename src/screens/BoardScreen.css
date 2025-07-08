@@ -50,6 +50,7 @@
 }
 
 .roll-again-button {
+    width: 90%;
     margin-top: 20px;
     background-color: #c1925a;
     color: #3b290d;
