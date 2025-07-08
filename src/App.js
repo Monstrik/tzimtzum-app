@@ -114,23 +114,24 @@ function App() {
     const handleRoll = () => {
         const result = Math.ceil(Math.random() * 6);
         setDiceResult(result);
+        let nextLevel = Math.min(playerLevel + result, 72);
+        let feedback;
+        if (snakes[nextLevel]) {
+            nextLevel = snakes[nextLevel];
+            feedback = {message: `🐍 You hit a setback! Falling down... to ${nextLevel}`, type: 'snake'};
+            setFeedback();
+        } else if (arrows[nextLevel]) {
+            nextLevel = arrows[nextLevel];
+            feedback = {message: `🕊️ Divine boost! You rise higher... to ${nextLevel}`, type: 'arrow'};
+        } else {
+            feedback = {message: `Level ${nextLevel}`, type: 'neutral'};
+        }
+        setFeedback(feedback);
 
         setTimeout(() => {
-            let nextLevel = Math.min(playerLevel + result, 72);
-
-            if (snakes[nextLevel]) {
-                nextLevel = snakes[nextLevel];
-                setFeedback({message: `🐍 You hit a setback! Falling down... to ${nextLevel}`, type: 'snake'});
-            } else if (arrows[nextLevel]) {
-                nextLevel = arrows[nextLevel];
-                setFeedback({message: `🕊️ Divine boost! You rise higher... to ${nextLevel}`, type: 'arrow'});
-            } else {
-                setFeedback({message: `Level ${nextLevel}`, type: 'neutral'});
-            }
-
             setPlayerLevel(nextLevel);
             setDiceResult(null); // Clear result after move
-        }, 1500);
+        }, 1000);
     };
 
 
