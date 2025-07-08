@@ -65,7 +65,6 @@ function App() {
         26: 'HITNADVUT – Selfless service.',
         27: 'AKEDAT ITZHAK – Self-sacrifice.',
         28: 'ISHMAEL – Treating brothers.',
-
         29: 'TZEDEK – Justice.',
         30: 'IPUK – Containing anger.',
         31: 'KVOD LE HORIM - Respecting parents.',
@@ -120,11 +119,11 @@ function App() {
             let nextLevel = Math.min(playerLevel + result, 72);
 
             if (snakes[nextLevel]) {
-                setFeedback({message: `🐍 You hit a setback! Falling down...to ${nextLevel}`, type: 'snake'});
                 nextLevel = snakes[nextLevel];
+                setFeedback({message: `🐍 You hit a setback! Falling down... to ${nextLevel}`, type: 'snake'});
             } else if (arrows[nextLevel]) {
-                setFeedback({message: `🕊️ Divine boost! You rise higher... to ${nextLevel}`, type: 'arrow'});
                 nextLevel = arrows[nextLevel];
+                setFeedback({message: `🕊️ Divine boost! You rise higher... to ${nextLevel}`, type: 'arrow'});
             } else {
                 setFeedback({message: `Level ${nextLevel}`, type: 'neutral'});
             }
