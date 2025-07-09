@@ -1,6 +1,9 @@
 html, body {
+    background: #3b290d;
+    color: #c1925a;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .screen {

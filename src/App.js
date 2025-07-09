@@ -134,6 +134,10 @@ function App() {
         }, 1000);
     };
 
+    const handleInfo = (level) => {
+        setFeedback({message: levelMeanings[level], type: 'info'});
+    };
+
 
     return (
         <Frame>
@@ -152,6 +156,7 @@ function App() {
                     <BoardScreen
                         currentLevel={playerLevel}
                         onRoll={handleRoll}
+                        onInfo={handleInfo}
                         feedback={feedback}
                         arrows={arrows}
                         snakes={snakes}

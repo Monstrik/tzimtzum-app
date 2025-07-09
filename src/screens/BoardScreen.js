@@ -3,7 +3,7 @@ import './BoardScreen.css';
 import Modal from '../components/Modal';
 import {useEffect, useState} from 'react';
 
-const BoardScreen = ({currentLevel, onRoll, feedback, arrows, snakes, levelMeanings, diceResult}) => {
+const BoardScreen = ({currentLevel, onRoll, onInfo, feedback, arrows, snakes, levelMeanings, diceResult}) => {
     const columns = 8;
     const rows = 9;
     const arrowOrigins = Object.keys(arrows).map(Number);
@@ -30,7 +30,9 @@ const BoardScreen = ({currentLevel, onRoll, feedback, arrows, snakes, levelMeani
                 const isSnake = snakeOrigins.includes(level);
 
                 cells.push(
-                    <div key={level}
+                    <div key={level} onClick={() => {
+                        onInfo(level)
+                    }}
                          className={`cell ${isArrow ? 'arrow' : ''} ${isSnake ? 'snake' : ''} ${level === currentLevel ? 'highlight' : ''}`}>
                         {isArrow && <span className="symbol">🕊️</span>}
                         {isSnake && <span className="symbol">🐍</span>}
@@ -42,6 +44,35 @@ const BoardScreen = ({currentLevel, onRoll, feedback, arrows, snakes, levelMeani
         return cells;
     };
 
+    function getModalContent() {
+        return <>
+            {diceResult && <p className="dice-result">🎲 You rolled a {diceResult}</p>}
+            <h3
+                className={`feedback-message ${
+                    feedback.type === 'snake' ? 'shake' :
+                        feedback.type === 'arrow' ? 'glow' : ''
+                }`}
+                key={feedback.message}
+            >
+                {feedback.message}
+                {/*<p>{levelMeanings[currentLevel] || 'This level holds subtle mysteries yet to be revealed.'}</p>*/}
+            </h3>
+
+            {!diceResult && levelMeanings[currentLevel] && (
+                <p className="level-meaning">
+                    📜  &nbsp;{levelMeanings[currentLevel]}
+                </p>
+            )}
+        </>;
+    }
+
+    function getInfoContent() {
+        return <div className="info-content">
+            <h3> - Level Meaning - </h3>
+            <h4>{feedback.message}</h4>
+        </div>;
+    }
+
     return (
         <div className="board-screen">
             <h4>Ascend the Path to Ein Sof</h4>
@@ -52,26 +83,7 @@ const BoardScreen = ({currentLevel, onRoll, feedback, arrows, snakes, levelMeani
 
 
             <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-
-                {diceResult && <p className="dice-result">🎲 You rolled a {diceResult}</p>}
-
-                <h3
-                    className={`feedback-message ${
-                        feedback.type === 'snake' ? 'shake' :
-                            feedback.type === 'arrow' ? 'glow' : ''
-                    }`}
-                    key={feedback.message}
-                >
-                    {feedback.message}
-                    {/*<p>{levelMeanings[currentLevel] || 'This level holds subtle mysteries yet to be revealed.'}</p>*/}
-                </h3>
-
-                {!diceResult && levelMeanings[currentLevel] && (
-                    <p className="level-meaning">
-                        📜  &nbsp;{levelMeanings[currentLevel]}
-                    </p>
-                )}
-
+                {feedback.type === 'info' ? getInfoContent() : getModalContent()}
             </Modal>
         </div>
     );

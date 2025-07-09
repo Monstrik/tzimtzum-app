@@ -110,3 +110,12 @@
     margin-top: 10px;
     animation: fadeIn 0.5s ease-in-out;
 }
+
+.info-content {
+    padding: 0.5em;
+    h3 {font-size: 2em;}
+
+    color: #c1925a;
+    margin-top: 2px;
+    animation: fadeIn 0.5s ease-in-out;
+}
