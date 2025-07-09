@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tzimtzum-app/static/css/main.5bc39d97.css",
+    "main.css": "/tzimtzum-app/static/css/main.f9dcd835.css",
     "main.js": "/tzimtzum-app/static/js/main.0d11adc9.js",
     "static/js/453.62dc2d68.chunk.js": "/tzimtzum-app/static/js/453.62dc2d68.chunk.js",
     "index.html": "/tzimtzum-app/index.html",
-    "main.5bc39d97.css.map": "/tzimtzum-app/static/css/main.5bc39d97.css.map",
+    "main.f9dcd835.css.map": "/tzimtzum-app/static/css/main.f9dcd835.css.map",
     "main.0d11adc9.js.map": "/tzimtzum-app/static/js/main.0d11adc9.js.map",
     "453.62dc2d68.chunk.js.map": "/tzimtzum-app/static/js/453.62dc2d68.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bc39d97.css",
+    "static/css/main.f9dcd835.css",
     "static/js/main.0d11adc9.js"
   ]
 }
